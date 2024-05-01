@@ -18,7 +18,7 @@ const App = () => {
 
   const fetchTranscodedVideo = async () => {
     try {
-      const response = await axios.get('https://cs218-back-end-c6beead8480d.herokuapp.com/transcoded-video');
+      const response = await axios.get('https://cs218-back-end-c6beead8480d.herokuapp.com/transcoded-video/');
       setTranscodedVideo1(response.data.url[0]);
       setTranscodedVideo2(response.data.url[1]);
     } catch (error) {
@@ -67,7 +67,7 @@ const App = () => {
     try {
       setIsLoading(true);
       setUploadStatus('Uploading...');
-      await axios.post('https://cs218-back-end-c6beead8480d.herokuapp.com/upload', formData, {
+      await axios.post('https://cs218-back-end-c6beead8480d.herokuapp.com/upload/', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setUploadStatus('Video uploaded successfully!');
